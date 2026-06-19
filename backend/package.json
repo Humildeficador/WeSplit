@@ -5,7 +5,9 @@
 	"main": "src/server.ts",
 	"scripts": {
 		"dev": "nodemon -L --watch src -e ts --exec \"node --env-file=.env -r tsx src/server.ts\"",
-		"lint": "biome format --write"
+		"lint": "biome format --write",
+		"prisma:migrate": "prisma migrate dev",
+		"prisma:generate": "prisma generate"
 	},
 	"type": "module",
 	"keywords": [],
