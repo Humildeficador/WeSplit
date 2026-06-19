@@ -8,6 +8,6 @@ app.register(cors, {
 	origin: '*',
 })
 
-app.register(users, { prefix: '/' })
+app.register(users, { prefix: '/users' })
 
 export { app }
