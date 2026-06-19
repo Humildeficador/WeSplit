@@ -1,0 +1,13 @@
+{
+	"prettier.enable": false,
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.organizeImports.biome": "explicit",
+		"source.fixAll.biome": "explicit"
+	},
+	"[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][css][html]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"css.lint.unknownAtRules": "ignore",
+	"tailwindCSS.classFunctions": ["cva", "cx"]
+}
