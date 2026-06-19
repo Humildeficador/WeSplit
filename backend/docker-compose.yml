@@ -12,5 +12,6 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+      - /app/generated
     environment:
       - NODE_ENV=development
