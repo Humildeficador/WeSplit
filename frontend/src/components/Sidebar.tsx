@@ -21,7 +21,7 @@ export const Sidebar = () => {
           return (
             <li
               key={item.label}
-              className={` px-4 py-2 flex gap-2 ${isActive ? 'bg-[#191e25] rounded-md cursor-pointer' : 'text-white/50'}`}
+              className={` px-4 py-2 flex gap-2 ${isActive ? 'bg-[#191e25] rounded-md cursor-pointer' : 'text-white/50 hover:text-white transition duration-300'}`}
             >
               <Icon size={20} className={`${isActive ? 'text-green-300' : ''}`} />
               <Link to={item.to} className="flex-1">{item.label}</Link>
