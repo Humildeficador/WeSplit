@@ -1,6 +1,6 @@
 export const Dashboard = () => {
   return (
-    <div>
+    <div className="p-6">
       Dashboard
     </div>
   )
