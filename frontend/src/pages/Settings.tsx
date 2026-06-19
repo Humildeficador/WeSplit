@@ -1,6 +1,6 @@
 export const Settings = () => {
   return (
-    <div>
+    <div className="p-6">
       Settings
     </div>
   )

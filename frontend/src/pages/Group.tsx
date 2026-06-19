@@ -1,6 +1,6 @@
 export const Group = () => {
   return (
-    <div>
+    <div className="p-6">
       Group
     </div>
   )
