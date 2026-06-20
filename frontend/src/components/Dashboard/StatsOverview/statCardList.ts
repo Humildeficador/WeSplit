@@ -10,9 +10,18 @@ export const statCardList: StatCardType[] = [
     description: 'Você deve receber de 5 pessoas',
     accentColor: {
       bg: 'bg-green-900',
+      bgChart: '#5eb566',
       text: 'text-[#5eb566]',
       icon: 'text-green-300'
-    }
+    },
+    sparkLineData: [
+      { value: 10 },
+      { value: 25 },
+      { value: 10 },
+      { value: 25 },
+      { value: 10 },
+      { value: 30 }
+    ]
   },
   {
     id: 2,
@@ -22,9 +31,18 @@ export const statCardList: StatCardType[] = [
     description: 'Você deve para 3 pessoas',
     accentColor: {
       bg: 'bg-red-900',
+      bgChart: '#fa5343',
       text: 'text-[#fa5343]',
       icon: 'text-red-300'
-    }
+    },
+    sparkLineData: [
+      { value: 10 },
+      { value: 25 },
+      { value: 10 },
+      { value: 25 },
+      { value: 10 },
+      { value: 30 }
+    ]
   },
   {
     id: 3,
@@ -34,9 +52,18 @@ export const statCardList: StatCardType[] = [
     description: 'Valor total de despesas no grupo',
     accentColor: {
       bg: 'bg-blue-900',
+      bgChart: '#4580c4',
       text: 'text-[#4580c4]',
       icon: 'text-blue-300'
-    }
+    },
+    sparkLineData: [
+      { value: 10 },
+      { value: 25 },
+      { value: 10 },
+      { value: 25 },
+      { value: 10 },
+      { value: 30 }
+    ]
   },
   {
     id: 4,
@@ -46,8 +73,17 @@ export const statCardList: StatCardType[] = [
     description: 'Despesas registradas no grupo',
     accentColor: {
       bg: 'bg-purple-900',
+      bgChart: '#a972f0',
       text: 'text-[#a972f0]',
       icon: 'text-purple-300'
-    }
+    },
+    sparkLineData: [
+      { value: 10 },
+      { value: 25 },
+      { value: 10 },
+      { value: 25 },
+      { value: 10 },
+      { value: 30 }
+    ]
   }
 ]
