@@ -10,6 +10,24 @@ export async function users(app: FastifyInstance) {
 		return reply.status(200).send(allUsers)
 	})
 
+	/* Rota de get user by id, retorna um usuario do banco de dados */
+	app.get('/:id', async (request, reply) => {
+		const getUserByIdSchema = z.object({
+			id: z.nanoid(),
+		})
+
+		const { id } = getUserByIdSchema.parse(request.params)
+
+		const user = await prisma.user.findUniqueOrThrow({
+			where: {
+				id,
+			},
+		})
+
+		return reply.status(200).send(user)
+	})
+
+	/* Rota de createUser, cria um usuario a partir de um email unico */
 	app.post('/', async (request, reply) => {
 		const createUserSchema = z.object({
 			name: z.string().min(3),
