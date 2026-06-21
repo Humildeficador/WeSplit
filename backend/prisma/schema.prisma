@@ -13,8 +13,68 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(nanoid())
-  name      String
-  email     String   @unique
+  id       String @id @default(nanoid())
+  name     String
+  email    String @unique
+  password String
+
+  groups   Group[]
+  expenses Expense[]
+
+  debtsToPay     Debt[] @relation("DebtsToPay")
+  debtsToReceive Debt[] @relation("DebtsToReceive")
+
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Group {
+  id          String  @id @default(nanoid())
+  name        String
+  description String?
+
+  participants User[]
+  expenses     Expense[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Expense {
+  id String @id @default(nanoid())
+
+  authorId String
+  groupId  String
+
+  author User  @relation(fields: [authorId], references: [id])
+  group  Group @relation(fields: [groupId], references: [id])
+
+  name        String
+  description String?
+  value       Int
+
+  debts Debt[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Debt {
+  id String @id @default(nanoid())
+
+  debtorId   String
+  creditorId String
+
+  expenseId String
+
+  value Int
+  paid  Boolean @default(false)
+
+  debtor   User @relation("DebtsToPay", fields: [debtorId], references: [id])
+  creditor User @relation("DebtsToReceive", fields: [creditorId], references: [id])
+
+  expense Expense @relation(fields: [expenseId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
