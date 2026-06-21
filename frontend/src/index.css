@@ -11,3 +11,8 @@
   --color-info: #4580c4;
   --color-accent: #a972f0;
 }
+
+.recharts-wrapper *:focus,
+.recharts-wrapper *:focus-visible {
+  outline: none;
+}

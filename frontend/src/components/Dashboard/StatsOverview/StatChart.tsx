@@ -15,6 +15,7 @@ export const StatChart = ({ chartData, chartColor }: Props) => {
           stroke={chartColor}
           strokeWidth={2}
           dot={false}
+          activeDot={false}
         />
       </LineChart>
     </ResponsiveContainer>
