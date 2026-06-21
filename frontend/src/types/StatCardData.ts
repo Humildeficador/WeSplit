@@ -1,6 +1,8 @@
+import type { ElementType } from "react"
+
 export type StatCardType = {
   id: number
-  Icon: React.ElementType,
+  Icon: ElementType,
   title: string,
   value: number,
   description: string

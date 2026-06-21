@@ -1,11 +1,12 @@
+import type { ReactNode } from "react"
 import type { StatCardType } from "../../../types/StatCardData"
-import { StatChart } from "./StatChart"
 
 type Props = {
-  data: StatCardType
+  data: Omit<StatCardType, 'sparkLineData'>
+  children: ReactNode
 }
 
-export const StatCard = ({ data: { id, Icon, title, value, description, sparkLineData, accentColor: { bg, bgChart, text, icon } } }: Props) => {
+export const StatCard = ({ data: { id, Icon, title, value, description, accentColor: { bg, text, icon } }, children }: Props) => {
   return (
     <div className="bg-[#13151a] mt-5 p-5 flex flex-col gap-5 rounded-md select-none">
       <div className="flex gap-5">
@@ -26,7 +27,7 @@ export const StatCard = ({ data: { id, Icon, title, value, description, sparkLin
       </div>
 
       <div className="w-full">
-        <StatChart data={sparkLineData} bgChart={bgChart} />
+        {children}
       </div>
     </div>
   )
