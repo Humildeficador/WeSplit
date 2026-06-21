@@ -11,7 +11,7 @@ export const statCardList: StatCardType[] = [
     accentColor: {
       bg: 'bg-green-900',
       bgChart: '#5eb566',
-      text: 'text-[#5eb566]',
+      text: 'text-success',
       icon: 'text-green-300'
     },
     sparkLineData: [
@@ -32,7 +32,7 @@ export const statCardList: StatCardType[] = [
     accentColor: {
       bg: 'bg-red-900',
       bgChart: '#fa5343',
-      text: 'text-[#fa5343]',
+      text: 'text-danger',
       icon: 'text-red-300'
     },
     sparkLineData: [
@@ -53,7 +53,7 @@ export const statCardList: StatCardType[] = [
     accentColor: {
       bg: 'bg-blue-900',
       bgChart: '#4580c4',
-      text: 'text-[#4580c4]',
+      text: 'text-info',
       icon: 'text-blue-300'
     },
     sparkLineData: [
@@ -74,7 +74,7 @@ export const statCardList: StatCardType[] = [
     accentColor: {
       bg: 'bg-purple-900',
       bgChart: '#a972f0',
-      text: 'text-[#a972f0]',
+      text: 'text-accent',
       icon: 'text-purple-300'
     },
     sparkLineData: [
