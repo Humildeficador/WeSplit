@@ -71,7 +71,7 @@ export async function users(app: FastifyZodInstance) {
         tags: ['Users'],
         body: z.object({
           name: z.string().min(3),
-          email: z.string().email(),
+          email: z.email(),
         }),
         response: {
           201: z.object({
