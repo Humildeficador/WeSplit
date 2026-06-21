@@ -7,6 +7,7 @@ export const statCardList: StatCardType[] = [
     Icon: ArrowDown,
     title: 'Total a receber',
     value: 129.29,
+    format: 'currency',
     description: 'Você deve receber de 5 pessoas',
     accentColor: {
       iconBackground: 'bg-green-900',
@@ -28,6 +29,7 @@ export const statCardList: StatCardType[] = [
     Icon: ArrowUp,
     title: 'Total a pagar',
     value: 79.28,
+    format: 'currency',
     description: 'Você deve para 3 pessoas',
     accentColor: {
       iconBackground: 'bg-red-900',
@@ -49,6 +51,7 @@ export const statCardList: StatCardType[] = [
     Icon: Wallet,
     title: 'Total movimentado',
     value: 215.90,
+    format: 'currency',
     description: 'Valor total de despesas no grupo',
     accentColor: {
       iconBackground: 'bg-blue-900',
@@ -70,6 +73,7 @@ export const statCardList: StatCardType[] = [
     Icon: ClipboardList,
     title: 'Total de despesas',
     value: 18,
+    format: 'count',
     description: 'Despesas registradas no grupo',
     accentColor: {
       iconBackground: 'bg-purple-900',

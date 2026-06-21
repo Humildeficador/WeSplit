@@ -5,6 +5,7 @@ export type StatCardType = {
   Icon: ElementType,
   title: string,
   value: number,
+  format: 'currency' | 'count',
   description: string
   accentColor: {
     iconBackground: string,

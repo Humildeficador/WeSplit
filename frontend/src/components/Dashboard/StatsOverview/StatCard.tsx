@@ -6,7 +6,7 @@ type Props = {
   children: ReactNode
 }
 
-export const StatCard = ({ stat: { id, Icon, title, value, description, accentColor: { iconBackground, valueColor, iconColor } }, children }: Props) => {
+export const StatCard = ({ stat: { Icon, title, value, format, description, accentColor: { iconBackground, valueColor, iconColor } }, children }: Props) => {
   return (
     <div className="bg-[#13151a] mt-5 p-5 flex flex-col gap-5 rounded-md select-none">
       <div className="flex gap-5">
@@ -17,7 +17,7 @@ export const StatCard = ({ stat: { id, Icon, title, value, description, accentCo
         <div className="flex-1">
           <h2>{title}</h2>
           {
-            id !== 4 ?
+            format === 'currency' ?
               <p className={`font-semibold text-2xl ${valueColor}`}>R$ {value.toFixed(2)}</p>
               :
               <p className={`font-semibold text-2xl ${valueColor}`}>{value}</p>
