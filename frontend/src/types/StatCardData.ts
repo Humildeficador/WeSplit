@@ -7,10 +7,10 @@ export type StatCardType = {
   value: number,
   description: string
   accentColor: {
-    bg: string,
-    bgChart: string,
-    text: string,
-    icon: string
+    iconBackground: string,
+    iconColor: string
+    valueColor: string,
+    chartColor: string,
   },
   sparkLineData: { value: number }[]
 }

@@ -9,10 +9,10 @@ export const statCardList: StatCardType[] = [
     value: 129.29,
     description: 'Você deve receber de 5 pessoas',
     accentColor: {
-      bg: 'bg-green-900',
-      bgChart: '#5eb566',
-      text: 'text-success',
-      icon: 'text-green-300'
+      iconBackground: 'bg-green-900',
+      iconColor: 'text-green-300',
+      valueColor: 'text-success',
+      chartColor: '#5eb566'
     },
     sparkLineData: [
       { value: 10 },
@@ -30,10 +30,10 @@ export const statCardList: StatCardType[] = [
     value: 79.28,
     description: 'Você deve para 3 pessoas',
     accentColor: {
-      bg: 'bg-red-900',
-      bgChart: '#fa5343',
-      text: 'text-danger',
-      icon: 'text-red-300'
+      iconBackground: 'bg-red-900',
+      iconColor: 'text-red-300',
+      valueColor: 'text-danger',
+      chartColor: '#fa5343'
     },
     sparkLineData: [
       { value: 10 },
@@ -51,10 +51,10 @@ export const statCardList: StatCardType[] = [
     value: 215.90,
     description: 'Valor total de despesas no grupo',
     accentColor: {
-      bg: 'bg-blue-900',
-      bgChart: '#4580c4',
-      text: 'text-info',
-      icon: 'text-blue-300'
+      iconBackground: 'bg-blue-900',
+      iconColor: 'text-blue-300',
+      valueColor: 'text-info',
+      chartColor: '#4580c4'
     },
     sparkLineData: [
       { value: 10 },
@@ -72,10 +72,10 @@ export const statCardList: StatCardType[] = [
     value: 18,
     description: 'Despesas registradas no grupo',
     accentColor: {
-      bg: 'bg-purple-900',
-      bgChart: '#a972f0',
-      text: 'text-accent',
-      icon: 'text-purple-300'
+      iconBackground: 'bg-purple-900',
+      iconColor: 'text-purple-300',
+      valueColor: 'text-accent',
+      chartColor: '#a972f0'
     },
     sparkLineData: [
       { value: 10 },

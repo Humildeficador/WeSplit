@@ -6,9 +6,9 @@ import { StatChart } from "./StatChart"
 export const StatsOverviewGrid = () => {
   return (
     <div className="grid grid-cols-4 gap-3">
-      {statCardList.map(data => (
-        <StatCard key={data.id} data={data}>
-          <StatChart data={data.sparkLineData} bgChart={data.accentColor.bgChart} />
+      {statCardList.map(card => (
+        <StatCard key={card.id} stat={card}>
+          <StatChart chartData={card.sparkLineData} chartColor={card.accentColor.chartColor} />
         </StatCard>
       ))}
     </div>

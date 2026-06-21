@@ -1,18 +1,18 @@
 import { Line, LineChart, ResponsiveContainer } from "recharts"
 
 type Props = {
-  data: { value: number }[],
-  bgChart: string
+  chartData: { value: number }[],
+  chartColor: string
 }
 
-export const StatChart = ({ data, bgChart }: Props) => {
+export const StatChart = ({ chartData, chartColor }: Props) => {
   return (
     <ResponsiveContainer width="100%" height={60}>
-      <LineChart data={data}>
+      <LineChart data={chartData}>
         <Line
           type="linear"
           dataKey="value"
-          stroke={bgChart}
+          stroke={chartColor}
           strokeWidth={2}
           dot={false}
         />
