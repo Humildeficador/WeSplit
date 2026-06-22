@@ -1,9 +1,19 @@
-import type { FastifyInstance } from 'fastify'
+import type { FastifyError, FastifyInstance } from 'fastify'
 import z, { ZodError } from 'zod'
 import { Prisma } from '../../generated/prisma/client'
 
 export function setupErrorHandler(app: FastifyInstance) {
 	app.setErrorHandler((error, request, reply) => {
+		const fastifyError = error as FastifyError
+		if (fastifyError.validation) {
+			return reply.status(400).send({
+				message: 'Dados inválidos.',
+				invalidFields: fastifyError.validation.map((err) =>
+					err.instancePath.replace('/', ''),
+				),
+			})
+		}
+
 		if (error instanceof ZodError) {
 			return reply.status(400).send({
 				message: 'Erro de validação',
