@@ -1,5 +1,5 @@
-import { Link, useLocation } from "react-router-dom"
 import { Activity, Users, Settings } from "lucide-react"
+import { SidebarNavLink } from "./SidebarNavLink"
 
 const NAV_LINK = [
   { to: '/', label: 'Atividade', icon: Activity },
@@ -8,27 +8,23 @@ const NAV_LINK = [
 ] as const
 
 export const Sidebar = () => {
-  const { pathname } = useLocation()
 
   return (
-    <nav className="w-64 h-full bg-[#0d1017] border-r-2 border-[#1e2026]">
+    <nav className="w-64 h-full bg-surface border-r-2 border-hairline">
       <img src="/logos/logo.png" className="w-35" />
-      <ul className="flex flex-col px-4 gap-2">
+      <div className="flex flex-col px-4 gap-2">
         {NAV_LINK.map(item => {
-          const Icon = item.icon
-          const isActive = pathname === item.to
 
           return (
-            <li
+            <SidebarNavLink
               key={item.label}
-              className={` px-4 py-2 flex gap-2 ${isActive ? 'bg-[#191e25] rounded-md cursor-pointer' : 'text-white/50 hover:text-white transition duration-300'}`}
-            >
-              <Icon size={20} className={`${isActive ? 'text-green-300' : ''}`} />
-              <Link to={item.to} className="flex-1">{item.label}</Link>
-            </li>
+              to={item.to}
+              label={item.label}
+              icon={item.icon}
+            />
           )
         })}
-      </ul>
+      </div>
     </nav>
   )
 }
