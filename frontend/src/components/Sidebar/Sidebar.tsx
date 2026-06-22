@@ -11,7 +11,7 @@ export const Sidebar = () => {
   const { pathname } = useLocation()
 
   return (
-    <nav className="w-64 h-full bg-[#0d1017] border-r-2 border-[#1e2026]">
+    <nav className="w-64 h-full bg-surface border-r-2 border-hairline">
       <img src="/logos/logo.png" className="w-35" />
       <ul className="flex flex-col px-4 gap-2">
         {NAV_LINK.map(item => {
@@ -21,7 +21,7 @@ export const Sidebar = () => {
           return (
             <li
               key={item.label}
-              className={` px-4 py-2 flex gap-2 ${isActive ? 'bg-[#191e25] rounded-md cursor-pointer' : 'text-white/50 hover:text-white transition duration-300'}`}
+              className={` px-4 py-2 flex gap-2 ${isActive ? 'bg-surface-active rounded-md cursor-pointer' : 'text-white/50 hover:text-white transition duration-300'}`}
             >
               <Icon size={20} className={`${isActive ? 'text-green-300' : ''}`} />
               <Link to={item.to} className="flex-1">{item.label}</Link>

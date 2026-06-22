@@ -4,7 +4,7 @@ import { Sidebar } from "../components/Sidebar/Sidebar";
 
 export default function DefaultLayout() {
   return (
-    <div className="bg-[#0a0c12] text-white h-dvh flex">
+    <div className="bg-background text-white h-dvh flex">
       <Sidebar />
 
       <main className="flex-1">
