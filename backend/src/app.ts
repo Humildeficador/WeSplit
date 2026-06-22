@@ -1,4 +1,5 @@
 import cors from '@fastify/cors'
+import jwt from '@fastify/jwt'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUi from '@fastify/swagger-ui'
 import fastify from 'fastify'
@@ -9,6 +10,7 @@ import {
 } from 'fastify-type-provider-zod'
 import { setupErrorHandler } from './handlers/errorHandler'
 import { users } from './routes/users'
+import { auth } from './routes/auth'
 
 const app = fastify()
 
@@ -30,11 +32,17 @@ app.register(fastifySwaggerUi, {
 	routePrefix: '/docs',
 })
 
-setupErrorHandler(app)
 app.register(cors, {
 	origin: '*',
 })
 
+app.register(jwt, {
+	secret: process.env.JWT_SECRET || 'jwt_secret'
+})
+
+setupErrorHandler(app)
+
+app.register(auth, { prefix: '/auth' })
 app.register(users, { prefix: '/users' })
 
 export { app }
