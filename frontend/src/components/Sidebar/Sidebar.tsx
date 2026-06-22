@@ -1,5 +1,5 @@
 import { Activity, Users, Settings } from "lucide-react"
-import { SidebarNavlink } from "./SidebarNavlink"
+import { SidebarNavLink } from "./SidebarNavLink"
 
 const NAV_LINK = [
   { to: '/', label: 'Atividade', icon: Activity },
@@ -16,7 +16,7 @@ export const Sidebar = () => {
         {NAV_LINK.map(item => {
 
           return (
-            <SidebarNavlink
+            <SidebarNavLink
               key={item.label}
               to={item.to}
               label={item.label}

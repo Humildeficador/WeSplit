@@ -7,7 +7,7 @@ type Props = {
   icon: LucideIcon
 }
 
-export const SidebarNavlink = ({ to, label, icon: Icon }: Props) => {
+export const SidebarNavLink = ({ to, label, icon: Icon }: Props) => {
   return (
     <NavLink
       to={to}
