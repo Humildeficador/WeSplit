@@ -13,7 +13,7 @@ import {
 // biome-ignore lint/suspicious/noExplicitAny: <não há necessidade atual dos outro tipos>
 type FastifyZodInstance = FastifyInstance<any, any, any, any, ZodTypeProvider>
 
-export async function users(app: FastifyZodInstance) {
+export async function usersRoutes(app: FastifyZodInstance) {
 	/* GET /user -> retorna todos os usuarios */
 	app.get(
 		'/',
