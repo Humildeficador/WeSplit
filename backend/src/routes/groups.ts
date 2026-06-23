@@ -18,6 +18,7 @@ export async function groupRoutes(app: FastifyZodInstance) {
 			schema: {
 				summary: 'Criação de grupo',
 				tags: ['Groups'],
+				security: [{ bearerAuth: [] }],
 				body: createGroupBodySchema,
 				response: {
 					201: z.object({
