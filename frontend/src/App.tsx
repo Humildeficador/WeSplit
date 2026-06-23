@@ -3,14 +3,17 @@ import DefaultLayout from "./layouts/DefaultLayout"
 import { Dashboard } from "./pages/Dashboard"
 import { Group } from "./pages/Group"
 import { Settings } from "./pages/Settings"
+import { Login } from "./pages/Login"
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<DefaultLayout />}>
-        <Route index element={<Dashboard />} />
-        <Route path="/group" element={<Group />}/>
-        <Route path="/settings" element={<Settings />}/>
+        <Route path="/" element={<Login />} />
+
+      <Route element={<DefaultLayout />}>
+        <Route path="/activity" element={<Dashboard />} />
+        <Route path="/group" element={<Group />} />
+        <Route path="/settings" element={<Settings />} />
       </Route>
     </Routes>
   )
