@@ -1,6 +1,6 @@
 import { LoginForm } from "../components/Login/LoginForm"
 import { LoginHeader } from "../components/Login/LoginHeader"
-import { LoginHero } from "../components/Login/LoginHero"
+import { LoginHero } from "../components/Login/Hero/LoginHero"
 import { PhoneMockup } from "../components/Login/PhoneMockup"
 
 export const Login = () => {
