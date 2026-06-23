@@ -24,13 +24,13 @@ export const userResponseSchema = z.object({
 
 /* retorna todos os usuarios do banco de dados */
 export async function getUser(_: FastifyRequest, reply: FastifyReply) {
-	const allUsers = await prisma.user.findMany({
+	const users = await prisma.user.findMany({
 		omit: {
 			password: true,
 		},
 	})
 
-	return reply.status(200).send(allUsers)
+	return reply.status(200).send({ users })
 }
 
 /* retorna um usuario do banco de dados pelo id */
@@ -45,7 +45,7 @@ export async function getUserById(
 		where: { id },
 	})
 
-	return reply.status(200).send(user)
+	return reply.status(200).send({ user })
 }
 
 /* cria um usuario com email unico no banco de dados e retorna ele */
@@ -68,5 +68,5 @@ export async function createUser(
 		},
 	})
 
-	return reply.status(201).send(user)
+	return reply.status(201).send({ user })
 }
