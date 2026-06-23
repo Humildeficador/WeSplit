@@ -1,5 +1,3 @@
-import type { FastifyInstance } from 'fastify'
-import type { ZodTypeProvider } from 'fastify-type-provider-zod'
 import z from 'zod'
 import {
 	createUser,
@@ -9,9 +7,7 @@ import {
 	getUserByIdParamsSchema,
 	userResponseSchema,
 } from '../controllers/userController'
-
-// biome-ignore lint/suspicious/noExplicitAny: <não há necessidade atual dos outro tipos>
-type FastifyZodInstance = FastifyInstance<any, any, any, any, ZodTypeProvider>
+import type { FastifyZodInstance } from '../lib/fastify'
 
 export async function usersRoutes(app: FastifyZodInstance) {
 	/* GET /user -> retorna todos os usuarios */
