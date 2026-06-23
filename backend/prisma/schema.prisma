@@ -18,8 +18,8 @@ model User {
   email    String @unique
   password String
 
-  groups   Group[]
-  expenses Expense[]
+  groupMembers GroupMember[]
+  expenses     Expense[]
 
   debtsToPay     Debt[] @relation("DebtsToPay")
   debtsToReceive Debt[] @relation("DebtsToReceive")
@@ -33,11 +33,29 @@ model Group {
   name        String
   description String?
 
-  participants User[]
-  expenses     Expense[]
+  members  GroupMember[]
+  expenses Expense[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  ADMIN
+  MEMBER
+}
+
+model GroupMember {
+  userId  String
+  groupId String
+  role    Role   @default(MEMBER)
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  group Group @relation(fields: [groupId], references: [id], onDelete: Cascade)
+
+  joinedAt DateTime @default(now())
+
+  @@id([userId, groupId])
 }
 
 model Expense {
@@ -47,7 +65,7 @@ model Expense {
   groupId  String
 
   author User  @relation(fields: [authorId], references: [id])
-  group  Group @relation(fields: [groupId], references: [id])
+  group  Group @relation(fields: [groupId], references: [id], onDelete: Cascade)
 
   name        String
   description String?
@@ -73,7 +91,7 @@ model Debt {
   debtor   User @relation("DebtsToPay", fields: [debtorId], references: [id])
   creditor User @relation("DebtsToReceive", fields: [creditorId], references: [id])
 
-  expense Expense @relation(fields: [expenseId], references: [id])
+  expense Expense @relation(fields: [expenseId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

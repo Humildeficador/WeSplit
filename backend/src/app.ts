@@ -9,8 +9,9 @@ import {
 	validatorCompiler,
 } from 'fastify-type-provider-zod'
 import { setupErrorHandler } from './handlers/errorHandler'
-import { users } from './routes/users'
 import { auth } from './routes/auth'
+import { groupRoutes } from './routes/groups'
+import { users } from './routes/users'
 
 const app = fastify()
 
@@ -37,12 +38,13 @@ app.register(cors, {
 })
 
 app.register(jwt, {
-	secret: process.env.JWT_SECRET || 'jwt_secret'
+	secret: process.env.JWT_SECRET || 'jwt_secret',
 })
 
 setupErrorHandler(app)
 
 app.register(auth, { prefix: '/auth' })
 app.register(users, { prefix: '/users' })
+app.register(groupRoutes, { prefix: '/groups' })
 
 export { app }
