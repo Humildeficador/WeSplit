@@ -2,7 +2,9 @@ import z from 'zod'
 import {
 	createGroup,
 	createGroupBodySchema,
-	createGroupResponseSchema,
+	getGroupDetails,
+	getGroupDetailsResponseSchema,
+	groupSchema,
 } from '../controllers/groupController'
 import type { FastifyZodInstance } from '../lib/fastify'
 import { verifyJwt } from '../middlewares/authMiddleware'
@@ -22,11 +24,31 @@ export async function groupRoutes(app: FastifyZodInstance) {
 				body: createGroupBodySchema,
 				response: {
 					201: z.object({
-						group: createGroupResponseSchema,
+						group: groupSchema,
 					}),
 				},
 			},
 		},
 		createGroup,
+	)
+
+	app.get(
+		'/:id',
+		{
+			schema: {
+				summary: 'Busca um grupo pelo ID',
+				tags: ['Groups'],
+				security: [{ bearerAuth: [] }],
+				params: z.object({
+					id: z.nanoid(),
+				}),
+				response: {
+					200: z.object({
+						group: getGroupDetailsResponseSchema,
+					}),
+				},
+			},
+		},
+		getGroupDetails,
 	)
 }
