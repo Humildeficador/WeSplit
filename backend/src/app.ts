@@ -11,8 +11,8 @@ import {
 import { setupErrorHandler } from './handlers/errorHandler'
 import { authRoutes } from './routes/auth'
 import { groupRoutes } from './routes/groups'
-import { usersRoutes } from './routes/users'
 import { meRoutes } from './routes/me'
+import { usersRoutes } from './routes/users'
 
 const app = fastify()
 
