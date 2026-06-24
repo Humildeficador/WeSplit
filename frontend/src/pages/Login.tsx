@@ -8,7 +8,7 @@ export const Login = () => {
     <div className="bg-[#090b0c] text-white h-dvh">
       <div className="container mx-auto h-full flex flex-col">
         <LoginHeader />
-        <div className="flex justify-between relative mt-10">
+        <div className="flex justify-between mt-10 relative">
           <LoginHero />
           <LoginForm />
           <PhoneMockup />
