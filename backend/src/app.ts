@@ -12,6 +12,7 @@ import { setupErrorHandler } from './handlers/errorHandler'
 import { authRoutes } from './routes/auth'
 import { groupRoutes } from './routes/groups'
 import { usersRoutes } from './routes/users'
+import { meRoutes } from './routes/me'
 
 const app = fastify()
 
@@ -55,5 +56,6 @@ setupErrorHandler(app)
 app.register(authRoutes, { prefix: '/auth' })
 app.register(usersRoutes, { prefix: '/users' })
 app.register(groupRoutes, { prefix: '/groups' })
+app.register(meRoutes, { prefix: '/me' })
 
 export { app }
