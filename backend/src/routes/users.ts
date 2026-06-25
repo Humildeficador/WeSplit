@@ -1,5 +1,3 @@
-import type { FastifyInstance } from 'fastify'
-import type { ZodTypeProvider } from 'fastify-type-provider-zod'
 import z from 'zod'
 import {
 	createUser,
@@ -9,20 +7,23 @@ import {
 	getUserByIdParamsSchema,
 	userResponseSchema,
 } from '../controllers/userController'
+import type { FastifyZodInstance } from '../lib/fastify'
+import { verifyJwt } from '../middlewares/authMiddleware'
 
-// biome-ignore lint/suspicious/noExplicitAny: <não há necessidade atual dos outro tipos>
-type FastifyZodInstance = FastifyInstance<any, any, any, any, ZodTypeProvider>
-
-export async function users(app: FastifyZodInstance) {
+export async function usersRoutes(app: FastifyZodInstance) {
 	/* GET /user -> retorna todos os usuarios */
 	app.get(
 		'/',
 		{
+			onRequest: [verifyJwt],
 			schema: {
 				summary: 'Lista todos os usuários',
 				tags: ['Users'],
+				security: [{ bearerAuth: [] }],
 				response: {
-					200: z.array(userResponseSchema),
+					200: z.object({
+						users: z.array(userResponseSchema),
+					}),
 				},
 			},
 		},
@@ -33,12 +34,16 @@ export async function users(app: FastifyZodInstance) {
 	app.get(
 		'/:id',
 		{
+			onRequest: [verifyJwt],
 			schema: {
 				summary: 'Busca um usuário pelo ID',
 				tags: ['Users'],
+				security: [{ bearerAuth: [] }],
 				params: getUserByIdParamsSchema,
 				response: {
-					200: userResponseSchema,
+					200: z.object({
+						user: userResponseSchema,
+					}),
 				},
 			},
 		},
@@ -54,7 +59,9 @@ export async function users(app: FastifyZodInstance) {
 				tags: ['Users'],
 				body: createUserBodySchema,
 				response: {
-					201: userResponseSchema,
+					201: z.object({
+						user: userResponseSchema,
+					}),
 				},
 			},
 		},

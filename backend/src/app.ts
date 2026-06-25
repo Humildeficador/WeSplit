@@ -9,8 +9,10 @@ import {
 	validatorCompiler,
 } from 'fastify-type-provider-zod'
 import { setupErrorHandler } from './handlers/errorHandler'
-import { users } from './routes/users'
-import { auth } from './routes/auth'
+import { authRoutes } from './routes/auth'
+import { groupRoutes } from './routes/groups'
+import { meRoutes } from './routes/me'
+import { usersRoutes } from './routes/users'
 
 const app = fastify()
 
@@ -23,6 +25,15 @@ app.register(fastifySwagger, {
 			title: 'WeSplit API',
 			description: 'Documentação do back-end',
 			version: '1.0.0',
+		},
+		components: {
+			securitySchemes: {
+				bearerAuth: {
+					type: 'http',
+					scheme: 'bearer',
+					bearerFormat: 'JWT',
+				},
+			},
 		},
 	},
 	transform: jsonSchemaTransform,
@@ -37,12 +48,14 @@ app.register(cors, {
 })
 
 app.register(jwt, {
-	secret: process.env.JWT_SECRET || 'jwt_secret'
+	secret: process.env.JWT_SECRET || 'jwt_secret',
 })
 
 setupErrorHandler(app)
 
-app.register(auth, { prefix: '/auth' })
-app.register(users, { prefix: '/users' })
+app.register(authRoutes, { prefix: '/auth' })
+app.register(usersRoutes, { prefix: '/users' })
+app.register(groupRoutes, { prefix: '/groups' })
+app.register(meRoutes, { prefix: '/me' })
 
 export { app }

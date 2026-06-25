@@ -3,7 +3,7 @@ import z, { ZodError } from 'zod'
 import { Prisma } from '../../generated/prisma/client'
 
 export function setupErrorHandler(app: FastifyInstance) {
-	app.setErrorHandler((error, request, reply) => {
+	app.setErrorHandler((error, _request, reply) => {
 		const fastifyError = error as FastifyError
 		if (fastifyError.validation) {
 			return reply.status(400).send({
