@@ -7,6 +7,7 @@ import { Lock, Mail } from "lucide-react"
 import { useState } from "react"
 import { api } from "../../../api"
 import { useAuth } from "../../../hooks/useAuth"
+import axios from "axios"
 
 export const LoginForm = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<z.infer<typeof loginSchema>>({
@@ -18,14 +19,14 @@ export const LoginForm = () => {
   const { login } = useAuth()
 
   const onSubmit = async (data: z.infer<typeof loginSchema>) => {
-    console.log(data)
     try {
-      const response = await api.post('/auth/', data)
-      console.log(response)
-      login(response.data)
+      const response = await api.post('/auth', data)
+      login(response.data.token)
       reset()
     } catch (err) {
-      setLoginError("E-mail ou senha incorretos!")
+      if (axios.isAxiosError(err)) {
+        setLoginError(err.response?.data?.message ?? "Erro ao realizar o login")
+      }
     }
   }
 
