@@ -8,6 +8,7 @@ import { useState } from "react"
 import { api } from "../../../api"
 import { useAuth } from "../../../hooks/useAuth"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 export const LoginForm = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<z.infer<typeof loginSchema>>({
@@ -15,13 +16,15 @@ export const LoginForm = () => {
   })
 
   const [loginError, setLoginError] = useState<string | null>(null)
-
   const { login } = useAuth()
+  const navigate = useNavigate()
+
 
   const onSubmit = async (data: z.infer<typeof loginSchema>) => {
     try {
       const response = await api.post('/auth', data)
       login(response.data.token)
+      navigate('/activity')
       reset()
     } catch (err) {
       if (axios.isAxiosError(err)) {
