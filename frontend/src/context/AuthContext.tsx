@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState, type ReactNode } from "react"
+import { TOKEN_KEY } from "../constants/tokenKey"
 
 type AuthContextType = {
   isLogged: boolean,
@@ -12,19 +13,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isLogged, setIsLogged] = useState(false)
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem(TOKEN_KEY)
     if (token) {
       setIsLogged(true)
     }
   }, [])
 
   const login = (token: string) => {
-    localStorage.setItem("token", token)
+    localStorage.setItem(TOKEN_KEY, token)
     setIsLogged(true)
   }
 
   const logout = () => {
-    localStorage.removeItem('token')
+    localStorage.removeItem(TOKEN_KEY)
     setIsLogged(false)
   }
 

@@ -1,11 +1,12 @@
 import axios from "axios";
+import { TOKEN_KEY } from "../constants/tokenKey";
 
 export const api = axios.create({
   baseURL: "http://localhost:3333"
 })
 
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token")
+  const token = localStorage.getItem(TOKEN_KEY)
   if (token) {
     config.headers.Authorization = `Bearer ${token}`
   }
@@ -15,7 +16,7 @@ api.interceptors.request.use((config) => {
 
 api.interceptors.response.use((response) => response, (error) => {
   if (error.response.status === 401) {
-    localStorage.removeItem("token")
+    localStorage.removeItem(TOKEN_KEY)
     window.location.href = '/'
   }
 
