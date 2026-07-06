@@ -1,8 +1,8 @@
 import { Activity, Users, Settings } from "lucide-react"
-import { SidebarNavLink } from "./SidebarNavLink"
+import { SidebarNavLink } from "./SidebarNavlink"
 
 const NAV_LINK = [
-  { to: '/', label: 'Atividade', icon: Activity },
+  { to: '/activity', label: 'Atividade', icon: Activity },
   { to: '/group', label: 'Grupos', icon: Users },
   { to: '/settings', label: 'Configurações', icon: Settings }
 ] as const
