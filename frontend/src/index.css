@@ -2,7 +2,7 @@
 
 
 @theme {
-  --color-background: #0a0c12;
+  --color-background: #090b0c;
   --color-surface: #0d1017;
   --color-surface-active: #191e25;
   --color-hairline: #1e2026;
@@ -10,6 +10,8 @@
   --color-danger: #fa5343;
   --color-info: #4580c4;
   --color-accent: #a972f0;
+  --color-surface-card: #11151a;
+  --color-surface-input: #0a0d11;
 }
 
 .recharts-wrapper *:focus,

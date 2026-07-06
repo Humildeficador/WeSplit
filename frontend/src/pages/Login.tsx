@@ -5,7 +5,7 @@ import { PhoneMockup } from "../components/Login/PhoneMockup"
 
 export const Login = () => {
   return (
-    <div className="bg-[#090b0c] text-white h-dvh">
+    <div className="bg-background text-white h-dvh">
       <div className="container mx-auto h-full flex flex-col">
         <LoginHeader />
         <div className="flex justify-between mt-10 relative">

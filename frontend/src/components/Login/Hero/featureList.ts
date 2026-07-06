@@ -1,10 +1,5 @@
-import { DollarSign, FileText, PieChart, Users, type LucideIcon } from "lucide-react"
-
-type FeatureItemType = {
-  icon: LucideIcon,
-  title: string,
-  description: string
-}
+import { DollarSign, FileText, PieChart, Users } from "lucide-react"
+import type { FeatureItemType } from "../../../types/FeatureItemType"
 
 export const featureList: FeatureItemType[] = [
   {

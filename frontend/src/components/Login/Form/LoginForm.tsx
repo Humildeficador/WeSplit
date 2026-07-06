@@ -24,8 +24,8 @@ export const LoginForm = () => {
     try {
       const response = await api.post('/auth', data)
       login(response.data.token)
-      navigate('/activity')
       reset()
+      navigate('/activity')
     } catch (err) {
       if (axios.isAxiosError(err)) {
         setLoginError(err.response?.data?.message ?? "Erro ao realizar o login")
@@ -34,7 +34,7 @@ export const LoginForm = () => {
   }
 
   return (
-    <div className="bg-[#11151a] rounded-lg w-110 flex flex-col py-6 px-13 border border-hairline">
+    <div className="bg-surface-card rounded-lg w-110 flex flex-col py-6 px-13 border border-hairline">
       <div>
         <h1 className="mt-7 font-semibold text-2xl">Bem-vindo de volta!</h1>
         <p className="text-white/50 text-sm mt-2">Faça login para acessar sua conta</p>
