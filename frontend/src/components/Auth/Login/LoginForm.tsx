@@ -8,7 +8,7 @@ import { useState } from "react"
 import { api } from "../../../api"
 import { useAuth } from "../../../hooks/useAuth"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export const LoginForm = () => {
   const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<z.infer<typeof loginSchema>>({
@@ -74,7 +74,7 @@ export const LoginForm = () => {
             ⓘ {loginError}
           </p>}
 
-        <p className="mt-10 text-center">Ainda não tem uma conta? <span className="text-blue-400 cursor-pointer hover:text-blue-300 transition-colors duration-300" onClick={() => navigate('/register')}>Cadastre-se</span></p>
+        <p className="mt-10 text-center">Ainda não tem uma conta? <Link to={"/register"} className="text-blue-400 cursor-pointer hover:text-blue-300 transition-colors duration-300">Cadastre-se</Link></p>
       </form>
     </div>
   )
