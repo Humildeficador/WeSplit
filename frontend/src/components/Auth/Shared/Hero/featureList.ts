@@ -1,5 +1,5 @@
 import { DollarSign, FileText, PieChart, Users } from "lucide-react"
-import type { FeatureItemType } from "../../../types/FeatureItemType"
+import type { FeatureItemType } from "../../../../types/FeatureItemType"
 
 export const featureList: FeatureItemType[] = [
   {

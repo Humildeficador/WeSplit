@@ -1,13 +1,13 @@
 import { FeatureItem } from "./FeatureItem"
 import { featureList } from "./featureList"
 
-export const LoginHero = () => {
+export const AuthHero = () => {
   return (
     <div className="select-none">
       <div>
         <p className="font-semibold text-5xl/tight">Organize seus</p>
         <p className="font-semibold text-5xl/tight">gastos. Simplifique</p>
-        <p className="font-semibold text-5xl/tighttext-blue-400">sua vida.</p>
+        <p className="font-semibold text-5xl/tight text-blue-400">sua vida.</p>
       </div>
 
       <div className="mt-7 max-w-1/2">

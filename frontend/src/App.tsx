@@ -5,11 +5,13 @@ import { Group } from "./pages/Group"
 import { Settings } from "./pages/Settings"
 import { Login } from "./pages/Login"
 import { ProtectedRoute } from "./guards/ProtectedRoute"
+import { Register } from "./pages/Register"
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
+      <Route path='/register' element={<Register />} />
 
       <Route element={<ProtectedRoute><DefaultLayout /></ProtectedRoute>}>
         <Route path="/activity" element={<Dashboard />} />

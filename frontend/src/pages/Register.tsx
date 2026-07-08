@@ -1,16 +1,16 @@
-import { LoginForm } from "../components/Auth/Login/LoginForm"
 import { AuthHero } from "../components/Auth/Shared/Hero/AuthHero"
 import { AuthHeader } from "../components/Auth/Shared/AuthHeader"
 import { PhoneMockup } from "../components/Auth/Shared/PhoneMockup"
+import { RegisterForm } from "../components/Auth/Register/RegisterForm"
 
-export const Login = () => {
+export const Register = () => {
   return (
-    <div className="bg-background text-white h-dvh">
+    <div className="bg-background text-white min-h-dvh">
       <div className="container mx-auto h-full flex flex-col">
         <AuthHeader />
         <div className="flex justify-between mt-10 relative">
           <AuthHero />
-          <LoginForm />
+          <RegisterForm />
           <PhoneMockup />
         </div>
       </div>
