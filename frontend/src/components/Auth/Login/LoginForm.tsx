@@ -2,16 +2,16 @@ import type z from "zod"
 import { loginSchema } from "../../../schemas/loginSchema"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Input } from "./Input"
+import { Input } from "../Shared/Input"
 import { Lock, Mail } from "lucide-react"
 import { useState } from "react"
 import { api } from "../../../api"
 import { useAuth } from "../../../hooks/useAuth"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export const LoginForm = () => {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<z.infer<typeof loginSchema>>({
+  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema)
   })
 
@@ -47,7 +47,7 @@ export const LoginForm = () => {
           placeholder="seu@email.com"
           icon={Mail}
           error={errors.email?.message}
-          registration={register('email')}
+          registration={register('email', { onChange: () => setLoginError(null) })}
         />
 
         <Input
@@ -56,19 +56,25 @@ export const LoginForm = () => {
           placeholder="Digite sua senha"
           icon={Lock}
           error={errors.password?.message}
-          registration={register('password')}
+          registration={register('password', { onChange: () => setLoginError(null) })}
         />
 
         <button
           type="submit"
           className="
         bg-blue-400 w-full rounded-lg py-2 mt-15 cursor-pointer
-         hover:-translate-y-0.5 transition-transform duration-300"
+          hover:-translate-y-0.5 transition-transform duration-300"
+          disabled={isSubmitting}
         >
-          Entrar
+          {isSubmitting ? "Carregando..." : "Entrar"}
         </button>
 
-        <p className="mt-10 text-center">Ainda não tem uma conta? <span className="text-blue-400 cursor-pointer">Cadastre-se</span></p>
+        {loginError &&
+          <p className="border border-danger bg-danger/10 text-danger mt-4 px-3 rounded-md col-span-full">
+            ⓘ {loginError}
+          </p>}
+
+        <p className="mt-10 text-center">Ainda não tem uma conta? <Link to={"/register"} className="text-blue-400 cursor-pointer hover:text-blue-300 transition-colors duration-300">Cadastre-se</Link></p>
       </form>
     </div>
   )

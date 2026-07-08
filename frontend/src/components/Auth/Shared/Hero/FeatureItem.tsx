@@ -1,4 +1,4 @@
-import type { FeatureItemType } from "../../../types/FeatureItemType"
+import type { FeatureItemType } from "../../../../types/FeatureItemType"
 
 type Props = {
   item: FeatureItemType

@@ -3,7 +3,7 @@ import type { UseFormRegisterReturn } from "react-hook-form"
 
 type Props = {
   label: string,
-  type: "email" | "password",
+  type: "email" | "password" | "text",
   placeholder: string,
   icon: LucideIcon,
   error?: string,
@@ -16,7 +16,7 @@ export const Input = ({ label, type, placeholder, icon: Icon, error, registratio
       <label htmlFor={registration.name}>{label}</label>
       <div className="bg-surface-input rounded-lg flex items-center gap-2 pl-3 border border-hairline">
         <label htmlFor={registration.name}><Icon size={15} className="text-white/50" /></label>
-        <input type={type} {...registration} className="outline-none py-3 flex-1 text-sm" placeholder={placeholder} id={registration.name} />
+        <input type={type} {...registration} className="outline-none py-3 flex-1 text-sm w-full" placeholder={placeholder} id={registration.name} />
       </div>
 
       {error &&
