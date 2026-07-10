@@ -11,8 +11,8 @@ export const Sidebar = () => {
 
   return (
     <nav className="w-64 h-full bg-surface border-r-2 border-hairline">
-      <img src="/logos/logo.png" className="w-35" />
-      <div className="flex flex-col px-4 gap-2">
+      <img src="/logos/logo.png" className="w-28 mx-4 my-5 pointer-events-none select-none" />
+      <div className="flex flex-col px-4 gap-2 select-none">
         {NAV_LINK.map(item => {
 
           return (
