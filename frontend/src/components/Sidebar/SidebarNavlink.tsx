@@ -18,7 +18,7 @@ export const SidebarNavLink = ({ to, label, icon: Icon }: Props) => {
 
       {({ isActive }) => (
         <>
-          <Icon size={20} className={isActive ? 'text-green-300' : ''} />
+          <Icon size={20} className={isActive ? 'text-blue-300' : ''} />
           <span className="flex-1">{label}</span>
         </>
       )}
